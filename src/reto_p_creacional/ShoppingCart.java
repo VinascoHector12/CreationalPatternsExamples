@@ -6,6 +6,7 @@ import java.util.List;
 public class ShoppingCart {
 	private static ShoppingCart instance;
     private List<Product> products;
+    private Order order;
 
     private ShoppingCart() {
         products = new ArrayList<>();
@@ -29,4 +30,13 @@ public class ShoppingCart {
     public List<Product> getProducts() {
         return products;
     }
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}    
+    
 }

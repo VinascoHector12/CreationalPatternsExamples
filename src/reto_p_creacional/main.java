@@ -19,7 +19,8 @@ public class main {
 		System.out.println("\nProductos en el carrito:");
 		
 		for (Product product : cart.getProducts()) {
-		System.out.println(product.getName() + " - $" + product.getPrice()); }
+			System.out.println(product.getName() + " - $" + product.getPrice()); 
+		}
 		 
 
         // Patron Builder
@@ -34,5 +35,17 @@ public class main {
         for (Product product : order.getProducts()) {
             System.out.println(product.getName() + " - $" + product.getPrice());
         }
+        
+        
+        //Se crea la orden en la instancia unica del carrito
+		/*
+		 * cart.setOrder(order); 
+		 * System.out.println("\nPedido para " + cart.getOrder().getCustomerName());
+		 * 
+		 * for (Product product : cart.getOrder().getProducts()) {
+		 * 	System.out.println(product.getName() + " - $" + product.getPrice()); 
+		 * }
+		 */
+        
     }
 }
