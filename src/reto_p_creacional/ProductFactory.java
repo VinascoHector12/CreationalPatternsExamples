@@ -11,6 +11,9 @@ public class ProductFactory {
 
 		case "clothing":
 			return new ClothingProduct(name, price);
+			
+		case "furniture":
+			return new FurnitureProduct(name, price);
 
 		default:
 			throw new IllegalArgumentException("Invalid product type: " + type);
