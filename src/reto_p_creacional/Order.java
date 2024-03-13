@@ -7,11 +7,6 @@ public class Order {
 	private List<Product> products;
 	private String customerName;
 
-//    private Order(Builder builder) {
-//        this.products = builder.products;
-//        this.customerName = builder.customerName;
-//    }
-
 	public List<Product> getProducts() {
 		if (products == null)
 			products = new ArrayList<Product>();
