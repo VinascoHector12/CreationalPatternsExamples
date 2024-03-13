@@ -5,41 +5,57 @@ import java.util.List;
 
 public class Order {
 	private List<Product> products;
-    private String customerName;
+	private String customerName;
 
-    private Order(Builder builder) {
-        this.products = builder.products;
-        this.customerName = builder.customerName;
-    }
+//    private Order(Builder builder) {
+//        this.products = builder.products;
+//        this.customerName = builder.customerName;
+//    }
 
-    public List<Product> getProducts() {
-        return products;
-    }
+	public List<Product> getProducts() {
+		if (products == null)
+			products = new ArrayList<Product>();
+		return products;
+	}
 
-    public String getCustomerName() {
-        return customerName;
-    }
+	public String getCustomerName() {
+		return customerName;
+	}
 
-    public static class Builder {
-        private List<Product> products;
-        private String customerName;
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
 
-        public Builder() {
-            products = new ArrayList<>();
-        }
+	public static class Builder {
 
-        public Builder addProduct(Product product) {
-            products.add(product);
-            return this;
-        }
+		private Order order;
 
-        public Builder customerName(String customerName) {
-            this.customerName = customerName;
-            return this;
-        }
+		public Builder() {
+			this.reset();
+		}
 
-        public Order build() {
-            return new Order(this);
-        }
-    }
+		public Builder addProduct(Product product) {
+			order.getProducts().add(product);
+			return this;
+		}
+
+		public Builder customerName(String customerName) {
+			order.setCustomerName(customerName);
+			return this;
+		}
+
+		/**
+		 * Devuelve la orden construida y se reinicia los atributos actuales
+		 * @return Order
+		 */
+		public Order build() {
+			Order builtOrder = this.order;
+			this.reset();
+			return builtOrder;
+		}
+
+		public void reset() {
+			order = new Order();
+		}
+	}
 }
