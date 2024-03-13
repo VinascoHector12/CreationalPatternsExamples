@@ -11,7 +11,7 @@ public class ClothingProduct implements Product {
 
     @Override
     public String getName() {
-        return name;
+        return "[C] "+name;
     }
 
     @Override

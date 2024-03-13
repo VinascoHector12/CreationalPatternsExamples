@@ -33,7 +33,7 @@ public class Order {
             return this;
         }
 
-        public Builder setCustomerName(String customerName) {
+        public Builder customerName(String customerName) {
             this.customerName = customerName;
             return this;
         }
