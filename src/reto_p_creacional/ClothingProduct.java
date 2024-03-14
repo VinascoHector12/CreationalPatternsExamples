@@ -18,4 +18,9 @@ public class ClothingProduct implements Product {
 	public double getPrice() {
 		return price;
 	}
+
+	@Override
+	public String print() {
+		return "[C] " + name + " - $" + price;
+	}
 }

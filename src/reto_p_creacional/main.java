@@ -26,7 +26,7 @@ public class main {
 		System.out.println("\nPedido para " + cart.getOrder().getCustomerName());
 
 		for (Product product : cart.getOrder().getProducts()) {
-			System.out.println(product.getName() + " - $" + product.getPrice());
+			System.out.println(product.print());
 		}
 
 	}

@@ -18,4 +18,9 @@ public class ElectronicProduct implements Product {
 	public double getPrice() {
 		return price;
 	}
+
+	@Override
+	public String print() {
+		return "[E] " + name + " - $" + price;
+	}
 }

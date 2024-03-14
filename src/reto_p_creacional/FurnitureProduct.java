@@ -18,4 +18,9 @@ public class FurnitureProduct implements Product {
 	public double getPrice() {
 		return price;
 	}
+
+	@Override
+	public String print() {
+		return "[F] " + name + " - $" + price;
+	}
 }
