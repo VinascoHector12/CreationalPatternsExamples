@@ -8,7 +8,7 @@ public class main {
 		// Instanciación múltiple del carro de compras - X Patron Singleton
 		ShoppingCart cart = new ShoppingCart();
 
-		// Creación de objetos por separado, con atributos y comportamientos similares - X Patron Factory
+		// Creación de objetos por separado, a pesar de compartir atributos y comportamientos similares - X Patron Factory
 		ElectronicProduct phone = new ElectronicProduct("Smartphone", 500);
 		ClothingProduct shirt = new ClothingProduct("T-shirt", 20);
 		FurnitureProduct sofa = new FurnitureProduct("double sofa", 350);
