@@ -1,6 +1,6 @@
 package reto_p_creacional;
 
-public class ElectronicProduct implements Product {
+public class ElectronicProduct {
 	private String name;
 	private double price;
 
@@ -9,17 +9,14 @@ public class ElectronicProduct implements Product {
 		this.price = price;
 	}
 
-	@Override
 	public String getName() {
 		return "[E] " + name;
 	}
 
-	@Override
 	public double getPrice() {
 		return price;
 	}
 
-	@Override
 	public String print() {
 		return "[E] " + name + " - $" + price;
 	}
