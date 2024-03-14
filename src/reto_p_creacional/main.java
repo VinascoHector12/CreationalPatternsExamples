@@ -5,8 +5,8 @@ public class main {
 	public static void main(String[] args) {
 		System.out.println("Creación de carrito de compras");
 
-		// Instanciación múltiple del carro de compras - X Patron Singleton
-		ShoppingCart cart = new ShoppingCart();
+		// Patron Singleton
+		ShoppingCart cart = ShoppingCart.getInstance();
 
 		// Creación de objetos por separado, a pesar de compartir atributos y comportamientos similares - X Patron Factory
 		ElectronicProduct phone = new ElectronicProduct("Smartphone", 500);
@@ -20,7 +20,7 @@ public class main {
 		order.getFurnitureProducts().add(sofa);
 		order.setCustomerName("Juan Pérez");
 
-		// Se crea la orden en una de las instancias del carrito
+		// Se crea la orden en la única instancia del carrito
 		cart.setOrder(order);
 		System.out.println("\nPedido para " + cart.getOrder().getCustomerName());
 
