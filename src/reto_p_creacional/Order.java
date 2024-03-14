@@ -4,27 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-	private List<ElectronicProduct> electronicProducts;
-	private List<ClothingProduct> clothingProducts;
-	private List<FurnitureProduct> furnitureProducts;
+	private List<Product> products;
 	private String customerName;
 	
-	public List<ElectronicProduct> getElectronicProducts() {
-		if (electronicProducts == null)
-			electronicProducts = new ArrayList<ElectronicProduct>();
-		return electronicProducts;
-	}
-	
-	public List<ClothingProduct> getClothingProducts() {
-		if (clothingProducts == null)
-			clothingProducts = new ArrayList<ClothingProduct>();
-		return clothingProducts;
-	}
-	
-	public List<FurnitureProduct> getFurnitureProducts() {
-		if (furnitureProducts == null)
-			furnitureProducts = new ArrayList<FurnitureProduct>();
-		return furnitureProducts;
+	public List<Product> getProducts() {
+		if (products == null)
+			products = new ArrayList<Product>();
+		return products;
 	}
 
 	public String getCustomerName() {

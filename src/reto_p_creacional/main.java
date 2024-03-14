@@ -8,33 +8,25 @@ public class main {
 		// Instanciación múltiple del carro de compras - X Patron Singleton
 		ShoppingCart cart = new ShoppingCart();
 
-		// Creación de objetos por separado, a pesar de compartir atributos y comportamientos similares - X Patron Factory
-		ElectronicProduct phone = new ElectronicProduct("Smartphone", 500);
-		ClothingProduct shirt = new ClothingProduct("T-shirt", 20);
-		FurnitureProduct sofa = new FurnitureProduct("double sofa", 350);
+		// Patron Factory
+		Product phone = ProductFactory.createProduct("electronic", "Smartphone", 500);
+		Product shirt = ProductFactory.createProduct("clothing", "T-shirt", 20);
+		Product sofa = ProductFactory.createProduct("furniture", "double sofa", 350);
 
 		// Creación de un objeto complejo - X Patron Builder
 		Order order = new Order();
-		order.getElectronicProducts().add(phone);
-		order.getClothingProducts().add(shirt);
-		order.getFurnitureProducts().add(sofa);
+		order.getProducts().add(phone);
+		order.getProducts().add(shirt);
+		order.getProducts().add(sofa);
 		order.setCustomerName("Juan Pérez");
 
 		// Se crea la orden en una de las instancias del carrito
 		cart.setOrder(order);
 		System.out.println("\nPedido para " + cart.getOrder().getCustomerName());
 
-		// Se imprime todos los tipos de producto por separado
-		for (ElectronicProduct electronicProduct : order.getElectronicProducts()) {
-			System.out.println(electronicProduct.print());
-		}
-		
-		for (ClothingProduct clothingProduct : order.getClothingProducts()) {
-			System.out.println(clothingProduct.print());
-		}
-		
-		for (FurnitureProduct furnitureProduct : order.getFurnitureProducts()) {
-			System.out.println(furnitureProduct.print());
+		// Se imprime todos los productos gracias al patrón Factory
+		for (Product product : cart.getOrder().getProducts()) {
+			System.out.println(product.print());
 		}
 	}
 }

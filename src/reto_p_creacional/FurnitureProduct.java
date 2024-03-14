@@ -1,6 +1,6 @@
 package reto_p_creacional;
 
-public class FurnitureProduct {
+public class FurnitureProduct implements Product {
 	private String name;
 	private double price;
 
@@ -9,14 +9,17 @@ public class FurnitureProduct {
 		this.price = price;
 	}
 
+	@Override
 	public String getName() {
 		return "[F] " + name;
 	}
 
+	@Override
 	public double getPrice() {
 		return price;
 	}
 
+	@Override
 	public String print() {
 		return "[F] " + name + " - $" + price;
 	}
