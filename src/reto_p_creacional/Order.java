@@ -34,4 +34,47 @@ public class Order {
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
+	
+	public static class Builder {
+
+		private Order order;
+
+		public Builder() {
+			this.reset();
+		}
+
+		public Builder addElectronicProduct(ElectronicProduct electronicProduct) {
+			order.getElectronicProducts().add(electronicProduct);
+			return this;
+		}
+		
+		public Builder addClothingProduct(ClothingProduct clothingProduct) {
+			order.getClothingProducts().add(clothingProduct);
+			return this;
+		}
+		
+		public Builder addFurnitureProduct(FurnitureProduct furnitureProduct) {
+			order.getFurnitureProducts().add(furnitureProduct);
+			return this;
+		}
+
+		public Builder customerName(String customerName) {
+			order.setCustomerName(customerName);
+			return this;
+		}
+
+		/**
+		 * Devuelve la orden construida y se reinicia los atributos actuales
+		 * @return Order
+		 */
+		public Order build() {
+			Order builtOrder = this.order;
+			this.reset();
+			return builtOrder;
+		}
+
+		public void reset() {
+			order = new Order();
+		}
+	}
 }

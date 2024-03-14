@@ -14,11 +14,12 @@ public class main {
 		FurnitureProduct sofa = new FurnitureProduct("double sofa", 350);
 
 		// Creación de un objeto complejo - X Patron Builder
-		Order order = new Order();
-		order.getElectronicProducts().add(phone);
-		order.getClothingProducts().add(shirt);
-		order.getFurnitureProducts().add(sofa);
-		order.setCustomerName("Juan Pérez");
+		Order order = new Order.Builder()
+				.addElectronicProduct(phone)
+				.addClothingProduct(shirt)
+				.addFurnitureProduct(sofa)
+				.customerName("Juan Pérez")
+				.build();
 
 		// Se crea la orden en una de las instancias del carrito
 		cart.setOrder(order);
