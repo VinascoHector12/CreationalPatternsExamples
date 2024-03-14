@@ -13,7 +13,7 @@ public class main {
 		ClothingProduct shirt = new ClothingProduct("T-shirt", 20);
 		FurnitureProduct sofa = new FurnitureProduct("double sofa", 350);
 
-		// Creación de un objeto complejo - X Patron Builder
+		// Creación de un objeto complejo a través del Patron Builder
 		Order order = new Order.Builder()
 				.addElectronicProduct(phone)
 				.addClothingProduct(shirt)
