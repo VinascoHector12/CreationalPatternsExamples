@@ -10,10 +10,11 @@ public class Main {
 
         // Patron Factory
         Product phone = ProductFactory.createProduct("electronic", "Smartphone",
-                500);
-        Product shirt = ProductFactory.createProduct("clothing", "T-shirt", 20);
+                500, new Used());
+        Product shirt = ProductFactory.createProduct("clothing", "T-shirt", 20,
+                new New());
         Product sofa = ProductFactory.createProduct("furniture", "double sofa",
-                350);
+                350, new Used());
 
         // Patron Builder
         Order order = new Order.Builder().addProduct(phone).addProduct(shirt)
@@ -25,11 +26,11 @@ public class Main {
                 .println("\nPedido para " + cart.getOrder().getCustomerName());
 
         for (Product product : cart.getOrder().getProducts()) {
-            System.out.println(product.print());
+            System.out.println(product.print() + ", descuento: "
+                    + product.getQuality().getDiscount());
         }
 
         System.out.println(
-                "costo total: " + ShoppingCart.getInstance().getPaymentService()
-                        .calculateTotal(cart.getOrder().getProducts()));
+                "costo total: " + ShoppingCart.getInstance().calculateTotal());
     }
 }

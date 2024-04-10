@@ -1,7 +1,17 @@
 package reto_p_creacional;
 
-public interface Product {
-	String getName();
-	double getPrice();
-	String print();
+public abstract class Product {
+    String name;
+    double price;
+    Quality quality;
+
+    abstract String getName();
+
+    abstract double getPrice();
+
+    public Quality getQuality() {
+        return this.quality;
+    }
+
+    abstract String print();
 }

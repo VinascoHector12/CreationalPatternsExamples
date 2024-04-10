@@ -24,12 +24,8 @@ public class ShoppingCart {
         this.order = order;
     }
 
-    public PaymentService getPaymentService() {
-        return paymentService;
-    }
-
-    public void setPaymentService(PaymentService paymentService) {
-        this.paymentService = paymentService;
+    public double calculateTotal() {
+        return paymentService.calculateTotal(order.getProducts());
     }
 
 }
