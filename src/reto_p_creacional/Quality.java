@@ -2,9 +2,9 @@ package reto_p_creacional;
 
 public interface Quality {
 
-    void setDiscount(double price);
-
     double getDiscount();
+
+    void setDiscount(double price);
 
     String print();
 }

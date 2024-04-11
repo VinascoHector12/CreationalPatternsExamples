@@ -18,12 +18,6 @@ public abstract class Product {
         return this.name;
     }
 
-    public String print() {
-        return this.getName() + " - $" + getPrice() + " - "
-                + getQuality().print() + " - " + getGiftWrap().getDescription()
-                + " - $" + getGiftWrap().getPrice();
-    }
-
     public double getPrice() {
         return price;
     }
@@ -34,6 +28,12 @@ public abstract class Product {
 
     public GiftWrap getGiftWrap() {
         return this.giftWrap;
+    }
+
+    public String print() {
+        return this.getName() + " - $" + getPrice() + " - "
+                + getQuality().print() + " - " + getGiftWrap().getDescription()
+                + " - $" + getGiftWrap().getPrice();
     }
 
 }
