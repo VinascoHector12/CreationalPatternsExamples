@@ -12,10 +12,11 @@ public class Main {
         Product phone = ProductFactory.createProduct("electronic", "Smartphone",
                 500, new Used(), new GiftCardDecorator(new SimpleGiftWrap()));
         Product shirt = ProductFactory.createProduct("clothing", "T-shirt", 20,
-                new New(), new GiftTapeDecorator(new SimpleGiftWrap()));
-        Product sofa = ProductFactory.createProduct("furniture", "double sofa",
-                350, new Used(), new GiftCardDecorator(
+                new New(), new GiftBowDecorator(
                         new GiftTapeDecorator(new SimpleGiftWrap())));
+        Product sofa = ProductFactory.createProduct("furniture", "double sofa",
+                350, new Used(), new GiftBowDecorator(new GiftCardDecorator(
+                        new GiftTapeDecorator(new SimpleGiftWrap()))));
 
         // Patron Builder
         Order order = new Order.Builder().addProduct(phone).addProduct(shirt)
