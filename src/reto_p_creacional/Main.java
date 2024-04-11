@@ -10,12 +10,11 @@ public class Main {
 
         // Patron Factory, Bridge y Decorator
         Product phone = ProductFactory.createProduct("electronic", "Smartphone",
-                500, new Used(), new GiftCardDecorator(new SimpleGiftWrap()));
+                500, new Used(), new GiftWrapWithCard());
         Product shirt = ProductFactory.createProduct("clothing", "T-shirt", 20,
-                new New(), new GiftTapeDecorator(new SimpleGiftWrap()));
+                new New(), new GiftWrapWithTapeWithBow());
         Product sofa = ProductFactory.createProduct("furniture", "double sofa",
-                350, new Used(), new GiftCardDecorator(
-                        new GiftTapeDecorator(new SimpleGiftWrap())));
+                350, new Used(), new GiftWrapWithTapeWithCardWithBow());
 
         // Patron Builder
         Order order = new Order.Builder().addProduct(phone).addProduct(shirt)

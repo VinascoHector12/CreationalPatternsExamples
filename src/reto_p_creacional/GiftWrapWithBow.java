@@ -1,10 +1,6 @@
 package reto_p_creacional;
 
-public class GiftBowDecorator extends GiftWrapDecorator {
-
-    public GiftBowDecorator(GiftWrap giftWrap) {
-        super(giftWrap);
-    }
+public class GiftWrapWithBow extends SimpleGiftWrap {
 
     @Override
     public Double getPrice() {
