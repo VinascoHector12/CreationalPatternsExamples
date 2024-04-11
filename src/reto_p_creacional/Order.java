@@ -6,7 +6,6 @@ import java.util.List;
 public class Order {
     private List<Product> products;
     private String customerName;
-    private PaymentService paymentService;
 
     public List<Product> getProducts() {
         if (products == null)

@@ -4,9 +4,6 @@ public class New implements Quality {
 
     private double discount;
 
-    public New() {
-    }
-
     @Override
     public double getDiscount() {
         return discount;
@@ -15,6 +12,11 @@ public class New implements Quality {
     @Override
     public void setPrice(double price) {
         discount = price * 0;
+    }
+
+    @Override
+    public String print() {
+        return "Artículo nuevo, descuento: " + this.getDiscount();
     }
 
 }

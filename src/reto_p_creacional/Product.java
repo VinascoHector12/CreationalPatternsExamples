@@ -1,17 +1,39 @@
 package reto_p_creacional;
 
 public abstract class Product {
-    String name;
-    double price;
-    Quality quality;
+    private String name;
+    private double price;
+    private Quality quality;
+    private GiftWrap giftWrap;
 
-    abstract String getName();
+    public Product(String name, double price, Quality quality,
+            GiftWrap giftWrap) {
+        this.name = name;
+        this.price = price;
+        this.quality = quality;
+        this.giftWrap = giftWrap;
+    }
 
-    abstract double getPrice();
+    public String getName() {
+        return this.name;
+    }
+
+    public String print() {
+        return this.getName() + " - $" + getPrice() + " - "
+                + getQuality().print() + " - " + getGiftWrap().getDescription()
+                + " - $" + getGiftWrap().getPrice();
+    }
+
+    public double getPrice() {
+        return price;
+    }
 
     public Quality getQuality() {
         return this.quality;
     }
 
-    abstract String print();
+    public GiftWrap getGiftWrap() {
+        return this.giftWrap;
+    }
+
 }

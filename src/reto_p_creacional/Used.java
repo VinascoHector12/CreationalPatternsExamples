@@ -4,9 +4,6 @@ public class Used implements Quality {
 
     private double discount;
 
-    public Used() {
-    }
-
     @Override
     public double getDiscount() {
         return discount;
@@ -15,6 +12,11 @@ public class Used implements Quality {
     @Override
     public void setPrice(double price) {
         discount = price * 0.3;
+    }
+
+    @Override
+    public String print() {
+        return "Artículo usado, descuento: " + this.getDiscount();
     }
 
 }

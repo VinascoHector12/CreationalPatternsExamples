@@ -5,4 +5,6 @@ public interface Quality {
     void setPrice(double price);
 
     double getDiscount();
+
+    String print();
 }
