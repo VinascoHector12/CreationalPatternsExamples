@@ -11,6 +11,7 @@ public class ShoppingCart {
 
     public static ShoppingCart getInstance() {
         if (instance == null) {
+            // Patrón Proxy, referencia al proxy
             instance = new ShoppingCart(new PaymentProxy());
         }
         return instance;

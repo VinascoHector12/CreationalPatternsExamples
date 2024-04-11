@@ -16,7 +16,7 @@ public class New implements Quality {
 
     @Override
     public String print() {
-        return "Artículo nuevo, descuento: " + this.getDiscount();
+        return "NEW, descuento: " + this.getDiscount();
     }
 
 }

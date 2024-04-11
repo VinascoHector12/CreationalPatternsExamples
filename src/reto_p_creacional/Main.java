@@ -8,7 +8,7 @@ public class Main {
         // Patron Singleton
         ShoppingCart cart = ShoppingCart.getInstance();
 
-        // Patron Factory
+        // Patron Factory, Bridge y Decorator
         Product phone = ProductFactory.createProduct("electronic", "Smartphone",
                 500, new Used(), new GiftCardDecorator(new SimpleGiftWrap()));
         Product shirt = ProductFactory.createProduct("clothing", "T-shirt", 20,
@@ -30,7 +30,7 @@ public class Main {
             System.out.println(product.print());
         }
 
-        System.out.println(
-                "costo total: " + ShoppingCart.getInstance().calculateTotal());
+        System.out.println("\ncosto total: $"
+                + ShoppingCart.getInstance().calculateTotal());
     }
 }

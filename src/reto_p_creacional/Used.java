@@ -16,7 +16,7 @@ public class Used implements Quality {
 
     @Override
     public String print() {
-        return "Artículo usado, descuento: " + this.getDiscount();
+        return "USED, descuento: $" + this.getDiscount();
     }
 
 }
