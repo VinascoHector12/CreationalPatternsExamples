@@ -4,7 +4,7 @@ public class ProductFactory {
 
     public static Product createProduct(String type, String name, double price,
             Quality quality, GiftWrap giftWrap) {
-        quality.setPrice(price);
+        quality.setDiscount(price);
 
         switch (type.toLowerCase()) {
 

@@ -10,7 +10,7 @@ public class New implements Quality {
     }
 
     @Override
-    public void setPrice(double price) {
+    public void setDiscount(double price) {
         discount = price * 0;
     }
 
