@@ -3,16 +3,16 @@ package reto_p_creacional;
 public class ShoppingCart {
     private static ShoppingCart instance;
     private Order order;
-    private PaymentLibrary paymentLibrary;
+    private PaymentService paymentService;
 
-    private ShoppingCart(PaymentLibrary paymentLibrary) {
-        this.paymentLibrary = paymentLibrary;
+    private ShoppingCart(PaymentService paymentService) {
+        this.paymentService = paymentService;
     }
 
     public static ShoppingCart getInstance() {
         if (instance == null) {
             // Patrón Proxy, referencia al proxy
-            instance = new ShoppingCart(new PaymentLibrary());
+            instance = new ShoppingCart(new PaymentProxy());
         }
         return instance;
     }
@@ -26,7 +26,7 @@ public class ShoppingCart {
     }
 
     public double calculateTotal() {
-        return paymentLibrary.calculateTotal(order.getProducts());
+        return paymentService.calculateTotal(order.getProducts());
     }
 
 }
