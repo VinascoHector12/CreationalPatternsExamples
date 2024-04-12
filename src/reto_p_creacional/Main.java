@@ -9,12 +9,12 @@ public class Main {
         ShoppingCart cart = ShoppingCart.getInstance();
 
         // Patron Factory, Bridge y Decorator
-        Product phone = ProductFactory.createProduct("electronic_used",
-                "Smartphone", 500, new GiftWrapWithCard());
-        Product shirt = ProductFactory.createProduct("clothing_new", "T-shirt",
-                20, new GiftWrapWithTapeWithBow());
-        Product sofa = ProductFactory.createProduct("furniture_used",
-                "double sofa", 350, new GiftWrapWithTapeWithCardWithBow());
+        Product phone = ProductFactory.createProduct("electronic", "Smartphone",
+                500, new Used(), new GiftWrapWithCard());
+        Product shirt = ProductFactory.createProduct("clothing", "T-shirt", 20,
+                new New(), new GiftWrapWithTapeWithBow());
+        Product sofa = ProductFactory.createProduct("furniture", "double sofa",
+                350, new Used(), new GiftWrapWithTapeWithCardWithBow());
 
         // Patron Builder
         Order order = new Order.Builder().addProduct(phone).addProduct(shirt)

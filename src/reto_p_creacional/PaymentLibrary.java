@@ -6,8 +6,10 @@ public class PaymentLibrary {
 
     // Lógica del servicio real
     public double calculateTotal(List<Product> products) {
-        return products.stream().mapToDouble(product -> product.getPrice()
-                - product.getDiscount() + product.getGiftWrap().getPrice())
+        return products.stream()
+                .mapToDouble(product -> product.getPrice()
+                        - product.getQuality().getDiscount()
+                        + product.getGiftWrap().getPrice())
                 .sum();
     }
 

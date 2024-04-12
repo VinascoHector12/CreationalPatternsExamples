@@ -3,14 +3,14 @@ package reto_p_creacional;
 public abstract class Product {
     private String name;
     private double price;
-    private String type;
-    private double discount;
+    private Quality quality;
     private GiftWrap giftWrap;
 
-    public Product(String name, double price, String type, GiftWrap giftWrap) {
+    public Product(String name, double price, Quality quality,
+            GiftWrap giftWrap) {
         this.name = name;
         this.price = price;
-        this.type = type;
+        this.quality = quality;
         this.giftWrap = giftWrap;
     }
 
@@ -22,20 +22,18 @@ public abstract class Product {
         return price;
     }
 
-    public double getDiscount() {
-        return 0.0;
+    public Quality getQuality() {
+        return this.quality;
     }
 
     public GiftWrap getGiftWrap() {
         return this.giftWrap;
     }
 
-    // "NEW, descuento: " + this.getDiscount();
     public String print() {
-        return this.getName() + " - $" + getPrice() + " - " + type
-                + ", descuento: " + this.getDiscount() + " - "
-                + getGiftWrap().getDescription() + " - $"
-                + getGiftWrap().getPrice();
+        return this.getName() + " - $" + getPrice() + " - "
+                + getQuality().print() + " - " + getGiftWrap().getDescription()
+                + " - $" + getGiftWrap().getPrice();
     }
 
 }
