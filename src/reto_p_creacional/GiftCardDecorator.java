@@ -1,19 +1,21 @@
 package reto_p_creacional;
 
-public class GiftCardDecorator extends GiftWrapDecorator {
+public class GiftCardDecorator implements GiftWrap {
+
+    private GiftWrap giftWrap;
 
     public GiftCardDecorator(GiftWrap giftWrap) {
-        super(giftWrap);
+        this.giftWrap = giftWrap;
     }
 
     @Override
     public Double getPrice() {
-        return super.getPrice() + 5.0;
+        return giftWrap.getPrice() + 5.0;
     }
 
     @Override
     public String getDescription() {
-        return super.getDescription() + " con tarjeta";
+        return giftWrap.getDescription() + " con tarjeta";
     }
 
 }
