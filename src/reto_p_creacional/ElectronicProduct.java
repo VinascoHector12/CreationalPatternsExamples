@@ -17,7 +17,7 @@ public class ElectronicProduct implements Product {
 
     @Override
     public String getName() {
-        return "[C] " + name;
+        return "[E] " + name;
     }
 
     @Override
