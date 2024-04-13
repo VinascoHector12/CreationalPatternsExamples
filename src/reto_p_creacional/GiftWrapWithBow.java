@@ -1,15 +1,15 @@
 package reto_p_creacional;
 
-public class GiftWrapWithBow extends SimpleGiftWrap {
+public class GiftWrapWithBow implements GiftWrap {
 
     @Override
     public Double getPrice() {
-        return super.getPrice() + 8.0;
+        return 15.0 + 8.0;
     }
 
     @Override
     public String getDescription() {
-        return super.getDescription() + " con moño";
+        return "Envoltorio de regalo sencillo con moño";
     }
 
 }
