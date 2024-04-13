@@ -1,15 +1,15 @@
 package reto_p_creacional;
 
-public class GiftWrapWithTapeWithCard extends SimpleGiftWrap {
+public class GiftWrapWithTapeWithCard implements GiftWrap {
 
     @Override
     public Double getPrice() {
-        return super.getPrice() + 3.0 + 5.0;
+        return 15.0 + 3.0 + 5.0;
     }
 
     @Override
     public String getDescription() {
-        return super.getDescription() + " con cinta con tarjeta";
+        return "Envoltorio de regalo sencillo con cinta con tarjeta";
     }
 
 }
