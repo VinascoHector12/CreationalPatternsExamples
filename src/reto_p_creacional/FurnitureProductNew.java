@@ -17,7 +17,7 @@ public class FurnitureProductNew implements Product {
 
     @Override
     public String getName() {
-        return "[C] " + name;
+        return "[F] " + name;
     }
 
     @Override
