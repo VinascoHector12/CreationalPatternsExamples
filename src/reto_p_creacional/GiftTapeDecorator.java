@@ -1,19 +1,21 @@
 package reto_p_creacional;
 
-public class GiftTapeDecorator extends GiftWrapDecorator {
+public class GiftTapeDecorator implements GiftWrap {
+
+    private GiftWrap giftWrap;
 
     public GiftTapeDecorator(GiftWrap giftWrap) {
-        super(giftWrap);
+        this.giftWrap = giftWrap;
     }
 
     @Override
     public Double getPrice() {
-        return super.getPrice() + 3.0;
+        return giftWrap.getPrice() + 3.0;
     }
 
     @Override
     public String getDescription() {
-        return super.getDescription() + " con cinta";
+        return giftWrap.getDescription() + " con cinta";
     }
 
 }

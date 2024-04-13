@@ -1,20 +1,51 @@
 package reto_p_creacional;
 
-public class ElectronicProductNew extends Product {
+public class ElectronicProductNew implements Product {
+
+    private String name;
+    private double price;
+    private String type;
+    private GiftWrap giftWrap;
 
     public ElectronicProductNew(String name, double price, String type,
             GiftWrap giftWrap) {
-        super(name, price, type, giftWrap);
+        this.name = name;
+        this.price = price;
+        this.type = type;
+        this.giftWrap = giftWrap;
     }
 
     @Override
     public String getName() {
-        return "[E] " + super.getName();
+        return "[C] " + name;
     }
 
     @Override
     public double getDiscount() {
-        return super.getPrice() * 0;
+        return price * 0;
+    }
+
+    @Override
+    public double getPrice() {
+        return price;
+    }
+
+    @Override
+    public String getType() {
+        return type;
+    }
+
+    @Override
+    public GiftWrap getGiftWrap() {
+        return giftWrap;
+    }
+
+    @Override
+    public String print() {
+        return this.getName() + " - $" + getPrice() + " - " + type
+                + ", descuento: " + this.getDiscount() + " - "
+                + getGiftWrap().getDescription() + " - $"
+                + getGiftWrap().getPrice();
     }
 
 }
