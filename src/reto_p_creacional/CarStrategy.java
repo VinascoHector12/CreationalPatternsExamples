@@ -5,9 +5,8 @@ import java.util.List;
 public class CarStrategy implements DeliveryStrategy {
 
 	@Override
-	public void delivery(List<Product> products) {
-		// TODO Auto-generated method stub
-
+	public void deliver(List<Product> products) {
+		System.out.println("\nSu entrega se sera por terrestre, total productos: " + products.size());
 	}
 
 }

@@ -4,6 +4,6 @@ import java.util.List;
 
 public interface DeliveryStrategy {
 
-	void delivery(List<Product> products);
+	void deliver(List<Product> products);
 
 }

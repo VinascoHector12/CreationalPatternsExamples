@@ -7,6 +7,7 @@ public class ShoppingCart {
 	private Order order;
 	private PaymentService paymentService;
 	private RuleValidator ruleValidator;
+	private DeliveryStrategy deliveryStrategy;
 
 	private ShoppingCart(PaymentService paymentService, RuleValidator ruleValidator) {
 		this.paymentService = paymentService;
@@ -35,6 +36,14 @@ public class ShoppingCart {
 
 	public boolean validateRules() {
 		return ruleValidator.validateRules(order.getProducts());
+	}
+
+	public void setStrategy(DeliveryStrategy deliveryStrategy) {
+		this.deliveryStrategy = deliveryStrategy;
+	}
+
+	public void deliver() {
+		deliveryStrategy.deliver(order.getProducts());
 	}
 
 }

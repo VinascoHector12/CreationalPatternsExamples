@@ -5,8 +5,12 @@ public class Main {
 	public static void main(String[] args) {
 		System.out.println("Creación de carrito de compras");
 
+		// Patron Strategy
+		DeliveryStrategy deliveryStrategy = new AirPlaneStrategy();
+
 		// Patron Singleton
 		ShoppingCart cart = ShoppingCart.getInstance();
+		cart.setStrategy(deliveryStrategy);
 
 		// Patron Factory, Bridge y Decorator
 		Product phone = ProductFactory.createProduct("electronic", "Smartphone", 5000, new Used(),
@@ -28,8 +32,12 @@ public class Main {
 			System.out.println(product.print());
 		}
 
+		// Patron Proxy
 		System.out.println("\ncosto total: $" + ShoppingCart.getInstance().calculateTotal() + "\n");
 
+		// Patron Chain Of Responsibility y Observer
 		System.out.println("\nLas reglas son validas?: " + ShoppingCart.getInstance().validateRules());
+
+		cart.deliver();
 	}
 }
