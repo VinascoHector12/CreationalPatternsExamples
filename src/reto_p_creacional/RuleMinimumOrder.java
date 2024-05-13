@@ -1,10 +1,11 @@
 package reto_p_creacional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RuleMinimumOrder {
 
-	private SendEmailSubscriber sendEmailSubscriber;
+	private List<InvalidRuleSubscription> invalidRuleSubscriptions;
 
 	public final static double MINIMUM = 400.0;
 
@@ -23,11 +24,17 @@ public class RuleMinimumOrder {
 		return true;
 	}
 
-	public void subscribe(SendEmailSubscriber sendEmailSubscriber) {
-		this.sendEmailSubscriber = sendEmailSubscriber;
+	public void subscribe(InvalidRuleSubscription invalidRuleSubscription) {
+		if (invalidRuleSubscriptions == null)
+			invalidRuleSubscriptions = new ArrayList<InvalidRuleSubscription>();
+
+		invalidRuleSubscriptions.add(invalidRuleSubscription);
+
 	}
 
 	public void notifySubscribers() {
-		sendEmailSubscriber.notify("REGLA INVALIDA VALOR MINIMO ORDEN");
+		for (InvalidRuleSubscription invalidRuleSubscription : invalidRuleSubscriptions) {
+			invalidRuleSubscription.notify("REGLA INVALIDA VALOR MINIMO ORDEN");
+		}
 	}
 }

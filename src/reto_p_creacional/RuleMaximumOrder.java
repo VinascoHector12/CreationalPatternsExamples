@@ -1,10 +1,11 @@
 package reto_p_creacional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RuleMaximumOrder {
 
-	private SendEmailSubscriber sendEmailSubscriber;
+	private List<InvalidRuleSubscription> invalidRuleSubscriptions;
 
 	public final static double MAXIMUM = 1000.0;
 
@@ -23,12 +24,17 @@ public class RuleMaximumOrder {
 		return true;
 	}
 
-	public void subscribe(SendEmailSubscriber sendEmailSubscriber) {
-		this.sendEmailSubscriber = sendEmailSubscriber;
+	public void subscribe(InvalidRuleSubscription invalidRuleSubscription) {
+		if (invalidRuleSubscriptions == null)
+			invalidRuleSubscriptions = new ArrayList<InvalidRuleSubscription>();
+
+		invalidRuleSubscriptions.add(invalidRuleSubscription);
+
 	}
 
 	public void notifySubscribers() {
-		sendEmailSubscriber.notify("REGLA INVALIDA VALOR MAXIMO ORDEN");
+		for (InvalidRuleSubscription invalidRuleSubscription : invalidRuleSubscriptions) {
+			invalidRuleSubscription.notify("REGLA INVALIDA VALOR MAXIMO ORDEN");
+		}
 	}
-
 }

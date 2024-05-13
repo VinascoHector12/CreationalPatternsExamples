@@ -1,10 +1,11 @@
 package reto_p_creacional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RuleProductTypes {
 
-	private SendEmailSubscriber sendEmailSubscriber;
+	private List<InvalidRuleSubscription> invalidRuleSubscriptions;
 
 	public final static int MAXIMUM_TYPE = 1;
 
@@ -33,12 +34,17 @@ public class RuleProductTypes {
 		return true;
 	}
 
-	public void subscribe(SendEmailSubscriber sendEmailSubscriber) {
-		this.sendEmailSubscriber = sendEmailSubscriber;
+	public void subscribe(InvalidRuleSubscription invalidRuleSubscription) {
+		if (invalidRuleSubscriptions == null)
+			invalidRuleSubscriptions = new ArrayList<InvalidRuleSubscription>();
+
+		invalidRuleSubscriptions.add(invalidRuleSubscription);
+
 	}
 
 	public void notifySubscribers() {
-		sendEmailSubscriber.notify("REGLA INVALIDA TIPO DE PRODUCTOS REPETIDOS");
+		for (InvalidRuleSubscription invalidRuleSubscription : invalidRuleSubscriptions) {
+			invalidRuleSubscription.notify("REGLA INVALIDA TIPO DE PRODUCTOS REPETIDOS");
+		}
 	}
-
 }
