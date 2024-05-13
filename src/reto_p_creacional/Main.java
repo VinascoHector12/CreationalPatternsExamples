@@ -35,7 +35,7 @@ public class Main {
 		System.out.println("\ncosto total: $" + ShoppingCart.getInstance().calculateTotal() + "\n");
 
 		// Patron Chain Of Responsibility y Observer
-		System.out.println("\nLas reglas son validas?: " + ShoppingCart.getInstance().validateRules());
+		System.out.println("\nLas reglas son validas: " + ShoppingCart.getInstance().validateRules());
 
 		cart.deliver();
 	}

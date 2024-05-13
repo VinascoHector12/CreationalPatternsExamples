@@ -6,7 +6,7 @@ public class AirPlaneStrategy implements DeliveryStrategy {
 
 	@Override
 	public void deliver(List<Product> products) {
-		System.out.println("\nSu entrega se sera por via aerea, total productos: " + products.size());
+		System.out.println("\nSu entrega sera via aerea, total productos: " + products.size());
 	}
 
 }

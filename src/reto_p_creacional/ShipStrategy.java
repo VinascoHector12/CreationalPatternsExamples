@@ -6,7 +6,7 @@ public class ShipStrategy implements DeliveryStrategy {
 
 	@Override
 	public void deliver(List<Product> products) {
-		System.out.println("\nSu entrega se sera por maritima , total productos: " + products.size());
+		System.out.println("\nSu entrega sera via maritima , total productos: " + products.size());
 	}
 
 }
