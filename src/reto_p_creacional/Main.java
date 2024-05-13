@@ -33,5 +33,8 @@ public class Main {
 
         System.out.println("\ncosto total: $"
                 + ShoppingCart.getInstance().calculateTotal());
+        
+        System.out.println("\nLas reglas son válidas?: "
+                + ShoppingCart.getInstance().validateRules());
     }
 }

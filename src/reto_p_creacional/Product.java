@@ -2,14 +2,16 @@ package reto_p_creacional;
 
 public interface Product {
 
-    public String getName();
+	public String getType();
 
-    public double getPrice();
+	public String getName();
 
-    public Quality getQuality();
+	public double getPrice();
 
-    public GiftWrap getGiftWrap();
+	public Quality getQuality();
 
-    public String print();
+	public GiftWrap getGiftWrap();
+
+	public String print();
 
 }
