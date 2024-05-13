@@ -7,7 +7,9 @@ public class ShoppingCart {
 	private Order order;
 	private PaymentService paymentService;
 	private RuleValidator ruleValidator;
-	private DeliveryStrategy deliveryStrategy;
+	private AirPlaneStrategy airPlaneStrategy;
+	private ShipStrategy shipStrategy;
+	private CarStrategy carStrategy;
 
 	private ShoppingCart(PaymentService paymentService, RuleValidator ruleValidator) {
 		this.paymentService = paymentService;
@@ -38,12 +40,28 @@ public class ShoppingCart {
 		return ruleValidator.validateRules(order.getProducts());
 	}
 
-	public void setStrategy(DeliveryStrategy deliveryStrategy) {
-		this.deliveryStrategy = deliveryStrategy;
+	public void deliverAirPlaneStrategy() {
+		airPlaneStrategy.deliver(order.getProducts());
 	}
 
-	public void deliver() {
-		deliveryStrategy.deliver(order.getProducts());
+	public void setAirPlaneStrategy(AirPlaneStrategy airPlaneStrategy) {
+		this.airPlaneStrategy = airPlaneStrategy;
+	}
+
+	public void deliverShipStrategy() {
+		shipStrategy.deliver(order.getProducts());
+	}
+
+	public void setShipStrategy(ShipStrategy shipStrategy) {
+		this.shipStrategy = shipStrategy;
+	}
+
+	public void deliverCarStrategy() {
+		carStrategy.deliver(order.getProducts());
+	}
+
+	public void setCarStrategy(CarStrategy carStrategy) {
+		this.carStrategy = carStrategy;
 	}
 
 }

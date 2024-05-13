@@ -6,11 +6,11 @@ public class Main {
 		System.out.println("Creación de carrito de compras");
 
 		// Patron Strategy
-		DeliveryStrategy deliveryStrategy = new AirPlaneStrategy();
+		AirPlaneStrategy airPlaneStrategy = new AirPlaneStrategy();
 
 		// Patron Singleton
 		ShoppingCart cart = ShoppingCart.getInstance();
-		cart.setStrategy(deliveryStrategy);
+		cart.setAirPlaneStrategy(airPlaneStrategy);
 
 		// Patron Factory, Bridge y Decorator
 		Product phone = ProductFactory.createProduct("electronic", "Smartphone", 5000, new Used(),
@@ -37,6 +37,6 @@ public class Main {
 		// Patron Chain Of Responsibility y Observer
 		System.out.println("\nLas reglas son validas: " + ShoppingCart.getInstance().validateRules());
 
-		cart.deliver();
+		cart.deliverAirPlaneStrategy();
 	}
 }
