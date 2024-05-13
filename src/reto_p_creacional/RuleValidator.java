@@ -6,9 +6,12 @@ public class RuleValidator {
 
 	public boolean validateRules(List<Product> products) {
 
-		RuleMinimumOrder ruleMinimumOrder = new RuleMinimumOrder();
-		RuleMaximumOrder ruleMaximumOrder = new RuleMaximumOrder();
-		RuleProductTypes ruleProductTypes = new RuleProductTypes();
+		Rule ruleMinimumOrder = new RuleMinimumOrder();
+		Rule ruleMaximumOrder = new RuleMaximumOrder();
+		Rule ruleProductTypes = new RuleProductTypes();
+
+		ruleMinimumOrder.setNextRule(ruleMaximumOrder);
+		ruleMaximumOrder.setNextRule(ruleProductTypes);
 
 		SendEmailSubscriber sendEmailSubscriber = new SendEmailSubscriber();
 
@@ -16,7 +19,6 @@ public class RuleValidator {
 		ruleMaximumOrder.subscribe(sendEmailSubscriber);
 		ruleProductTypes.subscribe(sendEmailSubscriber);
 
-		return ruleMinimumOrder.validateRule(products) && ruleMaximumOrder.validateRule(products)
-				&& ruleProductTypes.validateRule(products);
+		return ruleMinimumOrder.validateRule(products);
 	}
 }

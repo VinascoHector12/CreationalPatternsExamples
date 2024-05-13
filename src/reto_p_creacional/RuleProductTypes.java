@@ -2,9 +2,10 @@ package reto_p_creacional;
 
 import java.util.List;
 
-public class RuleProductTypes {
+public class RuleProductTypes implements Rule {
 
 	private SendEmailSubscriber sendEmailSubscriber;
+	private Rule nextRule;
 
 	public final static int MAXIMUM_TYPE = 1;
 
@@ -29,7 +30,8 @@ public class RuleProductTypes {
 		if (clothingCounter > MAXIMUM_TYPE || electronicCounter > MAXIMUM_TYPE || furnitureCounter > MAXIMUM_TYPE) {
 			notifySubscribers();
 			return false;
-		}
+		} else if (nextRule != null)
+			return nextRule.validateRule(products);
 		return true;
 	}
 
@@ -39,6 +41,11 @@ public class RuleProductTypes {
 
 	public void notifySubscribers() {
 		sendEmailSubscriber.notify("REGLA INVALIDA TIPO DE PRODUCTOS REPETIDOS");
+	}
+
+	@Override
+	public void setNextRule(Rule rule) {
+		this.nextRule = rule;
 	}
 
 }

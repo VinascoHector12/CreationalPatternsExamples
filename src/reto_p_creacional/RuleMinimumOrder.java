@@ -2,9 +2,10 @@ package reto_p_creacional;
 
 import java.util.List;
 
-public class RuleMinimumOrder {
+public class RuleMinimumOrder implements Rule {
 
 	private SendEmailSubscriber sendEmailSubscriber;
+	private Rule nextRule;
 
 	public final static double MINIMUM = 400.0;
 
@@ -19,7 +20,8 @@ public class RuleMinimumOrder {
 		if (totalPrice < MINIMUM) {
 			notifySubscribers();
 			return false;
-		}
+		} else if (nextRule != null)
+			return nextRule.validateRule(products);
 		return true;
 	}
 
@@ -29,5 +31,10 @@ public class RuleMinimumOrder {
 
 	public void notifySubscribers() {
 		sendEmailSubscriber.notify("REGLA INVALIDA VALOR MINIMO ORDEN");
+	}
+
+	@Override
+	public void setNextRule(Rule rule) {
+		this.nextRule = rule;
 	}
 }
