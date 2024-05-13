@@ -1,16 +1,13 @@
 package reto_p_creacional;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class RuleProductTypes implements Rule {
+public class RuleProductTypes {
 
-	private Rule nextRule;
-	private List<InvalidRuleSubscription> invalidRuleSubscriptions;
+	private SendEmailSubscriber sendEmailSubscriber;
 
 	public final static int MAXIMUM_TYPE = 1;
 
-	@Override
 	public boolean validateRule(List<Product> products) {
 		System.out.println("VALIDANDO REGLA TIPO DE PRODUCTOS REPETIDOS " + MAXIMUM_TYPE);
 
@@ -32,29 +29,16 @@ public class RuleProductTypes implements Rule {
 		if (clothingCounter > MAXIMUM_TYPE || electronicCounter > MAXIMUM_TYPE || furnitureCounter > MAXIMUM_TYPE) {
 			notifySubscribers();
 			return false;
-		} else if (nextRule != null)
-			return nextRule.validateRule(products);
+		}
 		return true;
 	}
 
-	@Override
-	public void setNextRule(Rule rule) {
-		this.nextRule = rule;
-	}
-
-	@Override
-	public void subscribe(InvalidRuleSubscription invalidRuleSubscription) {
-		if (invalidRuleSubscriptions == null)
-			invalidRuleSubscriptions = new ArrayList<InvalidRuleSubscription>();
-
-		invalidRuleSubscriptions.add(invalidRuleSubscription);
-
+	public void subscribe(SendEmailSubscriber sendEmailSubscriber) {
+		this.sendEmailSubscriber = sendEmailSubscriber;
 	}
 
 	public void notifySubscribers() {
-		for (InvalidRuleSubscription invalidRuleSubscription : invalidRuleSubscriptions) {
-			invalidRuleSubscription.notify("REGLA INVALIDA TIPO DE PRODUCTOS REPETIDOS");
-		}
+		sendEmailSubscriber.notify("REGLA INVALIDA TIPO DE PRODUCTOS REPETIDOS");
 	}
 
 }
