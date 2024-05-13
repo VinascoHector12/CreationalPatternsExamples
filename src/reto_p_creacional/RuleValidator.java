@@ -13,6 +13,12 @@ public class RuleValidator {
 		ruleMinimumOrder.setNextRule(ruleMaximumOrder);
 		ruleMaximumOrder.setNextRule(ruleProductTypes);
 
+		SendEmailSubscriber sendEmailSubscriber = new SendEmailSubscriber();
+
+		ruleMinimumOrder.subscribe(sendEmailSubscriber);
+		ruleMaximumOrder.subscribe(sendEmailSubscriber);
+		ruleProductTypes.subscribe(sendEmailSubscriber);
+
 		return ruleMinimumOrder.validateRule(products);
 	}
 }

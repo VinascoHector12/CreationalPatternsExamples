@@ -7,4 +7,9 @@ public interface Rule {
 	boolean validateRule(List<Product> products);
 
 	void setNextRule(Rule rule);
+
+	void subscribe(InvalidRuleSubscription invalidRuleSubscriptions);
+
+	void notifySubscribers();
+
 }

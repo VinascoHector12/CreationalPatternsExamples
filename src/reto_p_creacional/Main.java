@@ -2,39 +2,34 @@ package reto_p_creacional;
 
 public class Main {
 
-    public static void main(String[] args) {
-        System.out.println("Creación de carrito de compras");
+	public static void main(String[] args) {
+		System.out.println("Creación de carrito de compras");
 
-        // Patron Singleton
-        ShoppingCart cart = ShoppingCart.getInstance();
+		// Patron Singleton
+		ShoppingCart cart = ShoppingCart.getInstance();
 
-        // Patron Factory, Bridge y Decorator
-        Product phone = ProductFactory.createProduct("electronic", "Smartphone",
-                500, new Used(), new GiftCardDecorator(new SimpleGiftWrap()));
-        Product shirt = ProductFactory.createProduct("clothing", "T-shirt", 20,
-                new New(), new GiftBowDecorator(
-                        new GiftTapeDecorator(new SimpleGiftWrap())));
-        Product sofa = ProductFactory.createProduct("furniture", "double sofa",
-                350, new Used(), new GiftBowDecorator(new GiftCardDecorator(
-                        new GiftTapeDecorator(new SimpleGiftWrap()))));
+		// Patron Factory, Bridge y Decorator
+		Product phone = ProductFactory.createProduct("electronic", "Smartphone", 5000, new Used(),
+				new GiftCardDecorator(new SimpleGiftWrap()));
+		Product shirt = ProductFactory.createProduct("clothing", "T-shirt", 20, new New(),
+				new GiftBowDecorator(new GiftTapeDecorator(new SimpleGiftWrap())));
+		Product sofa = ProductFactory.createProduct("furniture", "double sofa", 350, new Used(),
+				new GiftBowDecorator(new GiftCardDecorator(new GiftTapeDecorator(new SimpleGiftWrap()))));
 
-        // Patron Builder
-        Order order = new Order.Builder().addProduct(phone).addProduct(shirt)
-                .addProduct(sofa).customerName("Juan Pérez").build();
+		// Patron Builder
+		Order order = new Order.Builder().addProduct(phone).addProduct(shirt).addProduct(sofa)
+				.customerName("Juan Pérez").build();
 
-        // Se crea la orden en la instancia unica del carrito
-        cart.setOrder(order);
-        System.out
-                .println("\nPedido para " + cart.getOrder().getCustomerName());
+		// Se crea la orden en la instancia unica del carrito
+		cart.setOrder(order);
+		System.out.println("\nPedido para " + cart.getOrder().getCustomerName());
 
-        for (Product product : cart.getOrder().getProducts()) {
-            System.out.println(product.print());
-        }
+		for (Product product : cart.getOrder().getProducts()) {
+			System.out.println(product.print());
+		}
 
-        System.out.println("\ncosto total: $"
-                + ShoppingCart.getInstance().calculateTotal());
-        
-        System.out.println("\nLas reglas son válidas?: "
-                + ShoppingCart.getInstance().validateRules());
-    }
+		System.out.println("\ncosto total: $" + ShoppingCart.getInstance().calculateTotal() + "\n");
+
+		System.out.println("\nLas reglas son validas?: " + ShoppingCart.getInstance().validateRules());
+	}
 }
