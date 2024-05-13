@@ -24,7 +24,6 @@ public class Main {
 		Order order = new Order.Builder().addProduct(phone).addProduct(shirt).addProduct(sofa)
 				.customerName("Juan Pérez").build();
 
-		// Se crea la orden en la instancia unica del carrito
 		cart.setOrder(order);
 		System.out.println("\nPedido para " + cart.getOrder().getCustomerName());
 
