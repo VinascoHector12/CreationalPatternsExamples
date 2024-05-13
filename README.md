@@ -8,3 +8,7 @@ El objetivo del sistema es crear pedidos de manera eficiente, permitiendo al usu
 - Singleton
 - Builder
 - Factory
+- Decorator
+- Bridge
+- Proxy
+- 
